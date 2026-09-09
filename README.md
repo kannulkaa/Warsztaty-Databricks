@@ -1,9 +1,8 @@
 # Retail Customer Intelligence — seria 4 warsztatów Databricks
-## 🆓 Wersja Free Trial (`workspace.default`)
+
 
 > **Ta wersja** jest przygotowana do uruchomienia na **Databricks Free Trial** (Community / Trial workspace).
-> Wszystkie referencje do `sandbox.testy` zostały zamienione na `workspace.default` —
-> domyślny schemat dostępny w każdym workspace bez dodatkowej konfiguracji.
+
 
 Kompletny case study: od surowych danych z Marketplace po zabezpieczonego AI agenta
 z chatbotem RAG i aplikacją webową. Wszystko na jednym datasecie klientów B2B
@@ -159,13 +158,7 @@ Scenariusz dla prowadzącego z:
 | `num_orders` | long | Liczba zamówień |
 | `promo_ratio` | double | Udział zakupów promocyjnych |
 
-## Różnice względem wersji głównej
 
-| Element | Wersja główna | Free Trial |
-| --- | --- | --- |
-| Catalog + Schema | `sandbox.testy` | `workspace.default` |
-| Wymagana konfiguracja | Tworzenie schema + uprawnienia | Brak — `workspace.default` istnieje domyślnie |
-| Notebooki | Identyczne treści | Identyczne treści |
 
 ## Funkcjonalności Databricks
 
