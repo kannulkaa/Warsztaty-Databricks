@@ -1,7 +1,7 @@
 # Retail Customer Intelligence — seria 4 warsztatów Databricks
 
 
-> **Ta wersja** jest przygotowana do uruchomienia na **Databricks Free Trial** (Community / Trial workspace).
+> **Ta wersja** jest przygotowana do uruchomienia na **Databricks Free Edition** (Community / Trial workspace).
 
 
 Kompletny case study: od surowych danych z Marketplace po zabezpieczonego AI agenta
@@ -10,7 +10,7 @@ elektroniki użytkowej (28 813 klientów, 4 074 zamówień).
 
 ## Wymagania
 
-- Databricks workspace z Unity Catalog (Free Trial wystarczy)
+- Databricks workspace z Unity Catalog (Free Edition wystarczy)
 - Serverless compute
 - Dostęp do Databricks Marketplace (dataset: `databricks_simulated_retail_customer_data`)
 - Model endpoint: `databricks-meta-llama-3-3-70b-instruct`
@@ -108,7 +108,7 @@ Od UC Functions po produkcyjną aplikację webową:
 | Akt | Temat | Kluczowe |
 | --- | --- | --- |
 | 1 | Konfiguracja + przegląd Gold | `unitycatalog-ai`, `databricks-langchain` |
-| 2 | UC Functions (SQL + Python UDF) | `get_customer_profile`, `get_segment_summary`, `format_for_agent` |
+| 2 | UC Functions (SQL + Python UDF) | `get_average_customer_value`, `get_customer_profile`, `format_customer_for_agent` |
 | 3 | Agent + MLflow Tracing | `UCFunctionToolkit`, `ChatDatabricks`, `AgentExecutor`, autolog, trace'y w UC |
 | 3b | **MCP Google Drive** | `DatabricksMCPServer`, `DatabricksMultiServerMCPClient`, LangGraph, 13 narzędzi Google (Docs/Sheets/Slides) |
 | 4 | Rejestracja modelu w UC | `mlflow.pyfunc.log_model`, `mlflow.register_model` |
