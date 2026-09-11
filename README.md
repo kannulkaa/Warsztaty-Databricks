@@ -25,7 +25,7 @@ Marketplace → SQL         Guardrails LLM: przykłady,     PDF docs (fpdf2)    
 ↓                          system prompt, safety filter,  ↓                            + test payloadem
  AI Functions               własny guard (S1–S6),         ai_parse_document()         ↓
 ↓                          AI Gateway (+ secret scope)   ↓                            LangChain Agent + guardrails
-Tool Calling (UC Func)    ↓                              Chunking (2000/200)         ↓
+Tool Calling (UC Func)    ↓                              Chunking (600/100)         ↓
 ↓                          Guardrails UC (Row/Col)       ↓                            MLflow Tracing (Workspace/UC)
 PySpark → Gold Table -→  ↓                              Vector Search (ANN/hybrid)  ↓
 ↓                          Ewaluacja (Gold+Genie)        ↓                            MCP Google Drive (Docs/Sheets)
@@ -50,7 +50,7 @@ Budowa kompletnego pipeline analitycznego:
 | 1 | Eksploracja danych z Marketplace | Unity Catalog, SQL w notebooku |
 | 2 | Zaawansowana analityka SQL | CTE, Window Functions, LAG, RANK |
 | 3 | AI Functions w SQL | `ai_query()`, `ai_classify()` |
-| 3b | **Tool Calling** — LLM wywołuje UC Function | OpenAI API, `get_revenue_summary`, parametryzowany SQL |
+| 5b | **Tool Calling** — LLM wywołuje UC Function | OpenAI API, `get_revenue_summary`, parametryzowany SQL |
 | 4 | Feature engineering (RFM) | PySpark, JSON parsing, JOIN |
 | 5 | Gold Table w Delta Lake | ACID, Time Travel, DESCRIBE HISTORY |
 | 6-8 | Model ML + rejestracja | scikit-learn, MLflow, AutoML, Unity Catalog Model Registry |
@@ -89,7 +89,7 @@ Dwa podejścia do RAG — od zera i managed:
 | Część | Temat | Narzędzia |
 | --- | --- | --- |
 | 1 | Generowanie 10 artykułów PDF | `fpdf2`, `matplotlib`, `ai_query()`, UC Volume |
-| 2 | Custom RAG z Vector Search | `ai_parse_document()`, **chunking** (2000/200), Delta Sync index, `databricks-gte-large-en`, ANN/hybrid/full-text, filtry, reranking |
+| 2 | Custom RAG z Vector Search | `ai_parse_document()`, **chunking** (600/100), Delta Sync index, `databricks-gte-large-en`, ANN/hybrid/full-text, filtry, reranking |
 | 3 | Knowledge Assistant (managed) | Agent Bricks SDK, quality examples |
 | 4 | Porównanie i ewaluacja | 3-way: Genie vs Custom RAG vs KA, `mlflow.genai.evaluate()` |
 | - | Interaktywny widget | `dbutils.widgets` — odpytuj oba RAG-i z jednego miejsca |
@@ -187,7 +187,7 @@ Scenariusz dla prowadzącego z:
 | **AI Gateway** (guardrails, PII block, inference table, secret scope) | WS2 |
 | **Benchmark A/B** (ROUGE-1, sędzia 1–5 mean/variance) | WS2 |
 | **Monitoring odpowiedzi LLM** (Time Series 5 min) | WS2 |
-| **Chunking** (RecursiveCharacterTextSplitter 2000/200) | WS3 |
+| **Chunking** (RecursiveCharacterTextSplitter 600/100) | WS3 |
 | **MCP Google Drive** (Model Context Protocol, 13 narzędzi) | WS4 |
 
 ## Licencja
